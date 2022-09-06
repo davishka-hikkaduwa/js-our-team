@@ -32,7 +32,7 @@ Barbara Ramos	Graphic Designer	barbara-ramos-graphic-designer.jpg
 
 // ----- MILESTONE 1 -----
 
-const team = [
+const members = [
     {
         nome: 'Wayne',
         cognome: 'Barnett',
@@ -69,5 +69,25 @@ const team = [
         ruolo: 'Graphic Designer',
         img: 'barbara-ramos-graphic-designer.jpg'
     }
-]
+];
+
+
+// ----- MILESTONE 2 -----
+
+const teamContainer = document.getElementById('team');
+
+generateTeamDOM(teamContainer, members);
+
+function generateTeamDOM(container, team) {
+    container.innerHTML = '';
+    let content = '';
+    for (let index = 0; index < team.length; index++) {
+        const teamMember = team[index];
+        content += `<li>
+                        ${teamMember.nome} ${teamMember.cognome} : ${teamMember.ruolo} --> ${teamMember.img}
+                    </li>`
+    }
+    container.innerHTML = `<ul>` + content + `</ul>`;
+}
+
 
