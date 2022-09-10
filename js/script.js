@@ -73,20 +73,20 @@ const teamContainer = document.getElementById('team');
 
 for (let index = 0; index < team.length; index++) {
     const teamMember = team[index];
-    showMemberInfo(teamMember);
+    showTeamMemberInfo(teamMember);
     teamContainer.innerHTML += `<div class="card-container">
                                     <div class="card">
                                         <div>
-                                            <img src="img/${teamMember.picture}" alt="${teamMember.name} picture" />
+                                            <img src="img/${teamMember.image}" alt="${teamMember.nome} picture" />
                                         </div>   
-                                        <div class="text">${teamMember.name}</div>
-                                        <div class="text">${teamMember.role} </div>
+                                        <div class="text">${teamMember.nome}</div>
+                                        <div class="text">${teamMember.ruolo} </div>
                                     </div>
                                 </div>`
 }
 
 
-function showMemberInfo(teamMember) {
+function showTeamMemberInfo(teamMember) {
     console.log('---  TeamMember info: ---')
     for (let key in teamMember) {
         console.log(`
