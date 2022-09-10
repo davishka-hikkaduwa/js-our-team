@@ -32,42 +32,36 @@ Barbara Ramos	Graphic Designer	barbara-ramos-graphic-designer.jpg
 
 // ----- MILESTONE 1 -----
 
-const members = [
+const team = [
     {
-        nome: 'Wayne',
-        cognome: 'Barnett',
+        nome: 'Wayne Barnett',
         ruolo: 'Founder & CEO',
-        img: 'wayne-barnett-founder-ceo.jpg'
+        image: 'wayne-barnett-founder-ceo.jpg'
     },
     {
-        nome: 'Angela',
-        cognome: 'Caroll',
+        nome: 'Angela Caroll',
         ruolo: 'Chief Editor',
-        img: 'angela-caroll-chief-editor.jpg'
+        image: 'angela-caroll-chief-editor.jpg'
     },
     {
-        nome: 'Walter',
-        cognome: 'Gordon',
+        nome: 'Walter Gordon',
         ruolo: 'Office Manager',
-        img: 'walter-gordon-office-manager.jpg'
+        image: 'walter-gordon-office-manager.jpg'
     },
     {
-        nome: 'Angela',
-        cognome: 'Lopez',
+        nome: 'Angela Lopez',
         ruolo: 'Social Media Manager',
-        img: 'angela-lopez-social-media-manager.jpg'
+        image: 'angela-lopez-social-media-manager.jpg'
     },
     {
-        nome: 'Scott',
-        cognome: 'Estrada',
+        nome: 'Scott Estrada',
         ruolo: 'Developer',
-        img: 'scott-estrada-developer.jpg'
+        image: 'scott-estrada-developer.jpg'
     },
     {
-        nome: 'Barbara',
-        cognome: 'Ramos',
+        nome: 'Barbara Ramos',
         ruolo: 'Graphic Designer',
-        img: 'barbara-ramos-graphic-designer.jpg'
+        image: 'barbara-ramos-graphic-designer.jpg'
     }
 ];
 
@@ -76,18 +70,30 @@ const members = [
 
 const teamContainer = document.getElementById('team');
 
-generateTeamDOM(teamContainer, members);
 
-function generateTeamDOM(container, team) {
-    container.innerHTML = '';
-    let content = '';
-    for (let index = 0; index < team.length; index++) {
-        const teamMember = team[index];
-        content += `<li>
-                        ${teamMember.nome} ${teamMember.cognome} : ${teamMember.ruolo} --> ${teamMember.img}
-                    </li>`
-    }
-    container.innerHTML = `<ul>` + content + `</ul>`;
+for (let index = 0; index < team.length; index++) {
+    const teamMember = team[index];
+    showMemberInfo(teamMember);
+    teamContainer.innerHTML += `<div class="card-container">
+                                    <div class="card">
+                                        <div>
+                                            <img src="img/${teamMember.picture}" alt="${teamMember.name} picture" />
+                                        </div>   
+                                        <div class="text">${teamMember.name}</div>
+                                        <div class="text">${teamMember.role} </div>
+                                    </div>
+                                </div>`
 }
 
+
+function showMemberInfo(teamMember) {
+    console.log('---  TeamMember info: ---')
+    for (let key in teamMember) {
+        console.log(`
+            ${key}: ${teamMember[key]}
+        `);
+    }
+    console.log('--- End TeammMember info ---')
+
+}
 
